@@ -1,9 +1,21 @@
+import random
+
 print('********************')
 print("Jogo de adivinhação")
 print('********************')
-numero_secreto = 45
+numero_secreto = random.randint(1, 100)
 
-total_tentativas = 3
+total_tentativas = 0
+print("Defina o nível do jogo: ")
+print("1 - Fácil, 2 - Médio, 3 - Difícil")
+level = int(input("Qual a sua escolha: "))
+
+if level == 1:
+    total_tentativas = 20
+elif level == 2:
+    total_tentativas = 10
+else:
+    total_tentativas = 5
 
 for rodada in range(1, total_tentativas + 1):
     print("Tentativa {} de {}".format(rodada, total_tentativas))
