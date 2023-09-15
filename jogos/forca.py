@@ -4,7 +4,11 @@ def jogar():
     print("***************************")
 
     palavra_secreta = "banana".upper()
-    letras_certas = ["_", "_", "_", "_", "_", "_"]
+    letras_certas = ["_" for letra in palavra_secreta]
+    # letras_certas = []
+    # # for letra in palavra_secreta:
+    # #     letras_certas.append("_")
+
     enforcou = False
     acertou = False
     erros = 0
