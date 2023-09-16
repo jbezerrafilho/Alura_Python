@@ -2,3 +2,10 @@ banana
 morango
 melancia
 maçã
+uva
+jabuticaba
+melao
+tangerina
+limao
+mamao
+
