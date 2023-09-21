@@ -1,75 +1,47 @@
-class Filme:
-    def __init__(self, nome, ano, duracao):
-        self.__nome = nome
+class Programa:
+    def __init__(self, nome, ano):
+        self._nome = nome.title()
         self.ano = ano
-        self.duracao = duracao
-        self.__likes = 0
+        self._likes = 0
 
     @property
     def nome(self):
-        return self.__nome
+        return self._nome
 
     @nome.setter
     def nome(self, nome):
-        self.__nome = nome.title()
+        self._nome = nome
 
     @property
-    def dar_likes(self):
-        return self.__likes
+    def likes(self):
+        return self._likes
 
     def dar_likes(self):
-        self.__likes += 1
+        self._likes += 1
 
-class Filme:
+
+class Filme(Programa):
     def __init__(self, nome, ano, duracao):
-        self.__nome = nome.title()
-        self.ano = ano
+        super().__init__(nome, ano)
         self.duracao = duracao
-        self.__likes = 0
-
-    @property
-    def likes(self):
-        return self.__likes
-
-    def dar_likes(self):
-        self.__likes += 1
-
-    @property
-    def nome(self):
-        return self.__nome
-
-    @nome.setter
-    def nome(self, novo_nome):
-        self.__nome = novo_nome.title()
 
 
-class Serie:
+class Serie(Programa):
     def __init__(self, nome, ano, temporadas):
-        self.__nome = nome.title()
-        self.ano = ano
+        super().__init__(nome, ano)
         self.temporadas = temporadas
-        self.__likes = 0
-
-    @property
-    def likes(self):
-        return self.__likes
-
-    def dar_likes(self):
-        self.__likes += 1
-
-    @property
-    def nome(self):
-        return self.__nome
-
-    @nome.setter
-    def nome(self, novo_nome):
-        self.__nome = novo_nome.title()
 
 
-vingadores = Filme('vingadores - guerra infinita', 2018, 160)
-print(vingadores.nome)
-
+vingadores = Filme('guerra infinita', 2018, 160)
 atlanta = Serie('atlanta', 2018, 2)
-print(f'Nome: {atlanta.nome} - Ano: {atlanta.ano}')
 
+vingadores.dar_likes()
+vingadores.dar_likes()
+vingadores.dar_likes()
+
+atlanta.dar_likes()
+atlanta.dar_likes()
+
+print(f'Nome: {vingadores.nome} - Likes: {vingadores.likes}')
+print(f'Nome: {atlanta.nome} - Likes: {atlanta.likes}')
 
