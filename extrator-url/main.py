@@ -1,12 +1,21 @@
-url = 'https://bytebank.com/cambio?moedaOrigem=real'
+url = 'https://bytebank.com/cambio?moedaDestino=dolar&moedaOrigem=real'
 print(url)
+
+# Separa base dos parâmetros
 indice_interrogacao = url.find('?')
-
-# O primeiro parâmetro é omitido também.
 url_base = url[:indice_interrogacao]
-print(url_base)
-
-# O primeiro parâmetro do fatiamento da url é acrescentado de 1 porque ele
-# é inclusivo e ira imprimir o '?. O segundo parâmetro será omitido'
 url_parametros = url[indice_interrogacao + 1:]
-print(url_parametros)
+
+# Busca o valor do parâmetro
+busca_parametro = 'moedaOrigem'
+indice_parametros = url_parametros.find(busca_parametro)
+indice_valor_parametro = indice_parametros + len(busca_parametro) + 1
+indice_e_comercial = url_parametros.find('&', indice_valor_parametro)
+
+if indice_e_comercial == -1:
+    valor_parametro = url_parametros[indice_valor_parametro:]
+else:
+    valor_parametro = url_parametros[indice_valor_parametro: indice_e_comercial]
+
+print(valor_parametro)
+
