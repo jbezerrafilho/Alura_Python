@@ -71,7 +71,7 @@ def escolher_opcao():
             finalizar_app()
         else:
             opcao_invalida()
-    except:
+    except TypeError:
         opcao_invalida()
 
 
