@@ -3,6 +3,7 @@ import os
 
 def exibir_nome_programa():
     print(""""
+      
 ░██████╗░█████╗░██████╗░░█████╗░██████╗░  ███████╗██╗░░██╗██████╗░██████╗░███████╗░██████╗░██████╗
 ██╔════╝██╔══██╗██╔══██╗██╔══██╗██╔══██╗  ██╔════╝╚██╗██╔╝██╔══██╗██╔══██╗██╔════╝██╔════╝██╔════╝
 ╚█████╗░███████║██████╦╝██║░░██║██████╔╝  █████╗░░░╚███╔╝░██████╔╝██████╔╝█████╗░░╚█████╗░╚█████╗░
@@ -24,20 +25,32 @@ def finalizar_app():
     print('Finalizando o App!')
 
 
-def escolher_opcao():
-    opcao_escolhida = int(input('Escolha uma opção: '))
+def opcao_invalida():
+    print('Opção Inválida!\n')
+    input('Digite uma tecla para voltar ao menu principal!')
+    main()
 
-    if opcao_escolhida == 1:
-        print('Cadastrar Restaurante')
-    elif opcao_escolhida == 2:
-        print('Listar Restaurantes')
-    elif opcao_escolhida == 3:
-        print('Ativar Restaurante')
-    else:
-        finalizar_app()
+
+def escolher_opcao():
+    try:
+        opcao_escolhida = int(input('Escolha uma opção: '))
+
+        if opcao_escolhida == 1:
+            print('Cadastrar Restaurante')
+        elif opcao_escolhida == 2:
+            print('Listar Restaurantes')
+        elif opcao_escolhida == 3:
+            print('Ativar Restaurante')
+        elif opcao_escolhida == 4:
+            finalizar_app()
+        else:
+            opcao_invalida()
+    except:
+        opcao_invalida()
 
 
 def main():
+    os.system('clear')
     exibir_nome_programa()
     exibir_opcoes()
     escolher_opcao()
