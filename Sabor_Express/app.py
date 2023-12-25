@@ -23,33 +23,38 @@ def exibir_opcoes():
 
 
 def finalizar_app():
-    os.system('clear')
-    print('Finalizando o App!')
+    limpar_exibir_subtitulo('Finalizando o App!')
+
+
+def voltar_menu_principal():
+    input('\nDigite uma tecla para voltar ao menu principal: ')
+    main()
 
 
 def opcao_invalida():
     print('Opção Inválida!\n')
-    input('Digite uma tecla para voltar ao menu principal!')
-    main()
+    voltar_menu_principal()
+
+
+def limpar_exibir_subtitulo(texto):
+    os.system('clear')
+    print(texto)
+    print()
 
 
 def cadastrar_restaurante():
-    os.system('clear')
-    print('Cadastro de novos restaurantes\n')
+    limpar_exibir_subtitulo('Cadastro de novos restaurantes')
     nome_restaurante = input('Digite o nome do restaurante: ')
     restaurantes.append(nome_restaurante)
     print(f'O restaurante {nome_restaurante} foi cadastrado com sucesso!')
-    input('Digite uma tecla para voltar a tela principal!')
-    main()
+    voltar_menu_principal()
 
 
 def listar_restaurantes():
-    os.system('clear')
-    print('Listando restaurantes\n')
+    limpar_exibir_subtitulo('Listando restaurantes')
     for restaurante in restaurantes:
         print(f'.{restaurante}')
-    input('\nDigite uma tecla para voltar!')
-    main()
+    voltar_menu_principal()
 
 
 def escolher_opcao():
