@@ -1,6 +1,6 @@
 import os
 
-restaurantes = []
+restaurantes = ['Farol Bar', 'Mangai']
 
 
 def exibir_nome_programa():
@@ -42,6 +42,16 @@ def cadastrar_restaurante():
     input('Digite uma tecla para voltar a tela principal!')
     main()
 
+
+def listar_restaurantes():
+    os.system('clear')
+    print('Listando restaurantes\n')
+    for restaurante in restaurantes:
+        print(f'.{restaurante}')
+    input('\nDigite uma tecla para voltar!')
+    main()
+
+
 def escolher_opcao():
     try:
         opcao_escolhida = int(input('Escolha uma opção: '))
@@ -49,7 +59,7 @@ def escolher_opcao():
         if opcao_escolhida == 1:
             cadastrar_restaurante()
         elif opcao_escolhida == 2:
-            print('Listar Restaurantes')
+            listar_restaurantes()
         elif opcao_escolhida == 3:
             print('Ativar Restaurante')
         elif opcao_escolhida == 4:
